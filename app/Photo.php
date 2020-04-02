@@ -9,4 +9,12 @@ class Photo extends Model
      protected $fillable = [
         'file',
     ];
+
+   public function getFileAttribute($value)
+    {
+        $directory = '/codehacking/public/images/';
+
+        return $directory. $value;
+    }
+
 }
