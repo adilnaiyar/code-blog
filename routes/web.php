@@ -19,7 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('admin/users', 'AdminUsersController');
+Route::group(['middleware' => 'admin'], function(){
+
+	Route::resource('admin/users', 'AdminUsersController');
+
+});
 
 Route::get('/admin', function(){
 
@@ -27,10 +31,10 @@ Route::get('/admin', function(){
 
 });
 
-Route::get('/admin/{id}', function($id){
+// Route::get('/admin/{id}', function($id){
 
-$user = App\User::find($id)->role;
-return $user;
+// $user = App\User::find($id)->role;
+// return $user;
 
-});
+// });
 

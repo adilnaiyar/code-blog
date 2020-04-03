@@ -14,7 +14,7 @@ class Photo extends Model
     {
         $directory = '/codehacking/public/images/';
 
-        return $directory. $value;
+        return $directory. $value;  
     }
 
 }

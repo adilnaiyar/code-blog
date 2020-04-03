@@ -7,6 +7,8 @@ use App\Role;
 use App\Photo;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UserEditRequest;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
@@ -69,7 +71,9 @@ class AdminUsersController extends Controller
         }
 
         User::create($input);
-        
+
+        Session::flash('success', 'User has been created');
+
         return redirect('/admin/users');
 
     }
@@ -135,6 +139,8 @@ class AdminUsersController extends Controller
 
          $user->update($input);
 
+         Session::flash('success', 'User has been updated');
+
          return redirect('/admin/users');
 
 
@@ -149,6 +155,16 @@ class AdminUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        $path = 'C:\xampp\htdocs'.$user->photo->file;
+        
+        unlink($path);
+
+        $user->delete();
+
+        Session::flash('success', 'User has been deleted');
+
+        return redirect('/admin/users');
     }
 }

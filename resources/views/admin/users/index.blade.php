@@ -4,6 +4,13 @@
 @section('content')
 
 	<h1>Users List</h1>
+
+	@if ($message = Session::get('success'))
+	    <div class="alert alert-success">
+	        <p>{{ $message }}</p>
+	    </div>
+	@endif
+
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
 	        <th>Id </th>
@@ -29,7 +36,13 @@
                 <td> {{ $user->created_at->diffForHumans()}}</td>
                 <td> {{ $user->updated_at->diffForHumans()}}</td>
                 <td>  
+                	{!! Form::open(['method' => 'delete', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+
                     <a href="{{route('users.edit', $user->id)}}" class="btn btn-sm btn-warning"> Edit </a>
+
+                    {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
+				
+					{!! Form::close() !!}
 			    </td>
             </tr>
             @endforeach
