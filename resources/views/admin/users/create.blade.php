@@ -33,7 +33,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::submit('Submit User', ['class' => 'btn btn-sm btn-info']) !!}
-			
+			<a class="btn btn-sm btn-danger btn-close" href="{{ route('users.index') }}">Cancel</a>		
 		</div>
 
 	{!! Form::close() !!}
