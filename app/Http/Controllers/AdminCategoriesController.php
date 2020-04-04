@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Http\Requests\CategoryRequest;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 
 class AdminCategoriesController extends Controller
@@ -13,7 +16,8 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin.categories.index');
+        $categories = Category::all();
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -32,9 +36,15 @@ class AdminCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        //
+        $input = $request->all();
+
+        Category::create($input);
+
+        Session::flash('success', 'Category has been created');
+
+        return redirect('/admin/categories');
     }
 
     /**
@@ -56,7 +66,9 @@ class AdminCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::findOrFail($id);
+
+        return view('admin.categories.edit', compact('categories'));
     }
 
     /**
@@ -66,9 +78,18 @@ class AdminCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
-        //
+        $input       = $request->all();
+
+        $categories  = Category::findOrFail($id);
+
+        $categories->update($input);
+
+        Session::flash('success', 'Category has been updated');
+
+        return redirect('/admin/categories');
+
     }
 
     /**
@@ -79,6 +100,10 @@ class AdminCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category::whereId($id)->delete();
+
+        Session::flash('success','Category has been deleted');
+
+        return redirect('/admin/categories'); 
     }
 }
