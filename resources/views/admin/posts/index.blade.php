@@ -16,7 +16,7 @@
 	        <th>Id </th>
 	        <th>Photo</th>
 	        <th>Owner</th>
-	        <th>Category-Id</th>
+	        <th>Category</th>
 	        <th>Title</th>
 	        <th>Body</th>
 	        <th>Created At</th>
@@ -32,11 +32,16 @@
                 <td> {{ $post->user->name}} </td>
                 <td> {{ $post->category->name ?? 'Uncategorised'}} </td>
                 <td> {{ $post->title}}</td>
-                <td> {{ $post->body}}</td>
+                <td> {{ Illuminate\Support\Str::limit($post->body, 10)}}</td>
                 <td> {{ $post->created_at->diffForHumans()}}</td>
                 <td> {{ $post->updated_at->diffForHumans()}}</td>
-                <td>  
-                    <a href="" class="btn btn-sm btn-warning"> Edit </a>
+                <td> 
+                	{!! Form::open(['method' => 'delete', 'action'=>['AdminPostsController@destroy', $post->id]]) !!}
+
+                    <a href="{{route('posts.edit', $post->id)}}" class="btn btn-sm btn-warning"> Edit </a>
+                    {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
+				
+					{!! Form::close() !!}
 			    </td>
             </tr>
             @endforeach

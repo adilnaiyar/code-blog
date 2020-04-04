@@ -8,7 +8,6 @@ use App\Photo;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UserEditRequest;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 
 class AdminUsersController extends Controller
@@ -158,7 +157,7 @@ class AdminUsersController extends Controller
         $user = User::findOrFail($id);
 
         $path = 'C:\xampp\htdocs'.$user->photo->file;
-        
+
         unlink($path);
 
         $user->delete();

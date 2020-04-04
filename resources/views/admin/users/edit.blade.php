@@ -3,7 +3,7 @@
 
 @section('content')
 
-	<h1>Create Users</h1>
+	<h1>Edit Users</h1>
 
 	<div class="row">
 

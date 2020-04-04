@@ -3,6 +3,6 @@
 
 @section('content')
 
-	<h2>Categories List</h2>
+	<h2> Create Categories </h2>
 
 @endsection
