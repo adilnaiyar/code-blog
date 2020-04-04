@@ -19,9 +19,8 @@
     <link href="{{asset('lib_css/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/styles.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/custom.css')}}" rel="stylesheet">
-    
 
-
+    @yield('upload_css')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -152,9 +151,9 @@
                                 <a href="{{route('categories.index')}}">All Categories</a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="{{route('categories.create')}}">Create Category</a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -165,11 +164,11 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="{{route('media.index')}}">All Media</a>
                             </li>
 
                             <li>
-                                <a href="">Upload Media</a>
+                                <a href="{{route('media.create')}}">Upload Media</a>
                             </li>
 
                         </ul>
@@ -324,6 +323,8 @@
 <script src="{{asset('lib_js/js/metisMenu.js')}}"></script>
 <script src="{{asset('lib_js/js/sb-admin-2.js')}}"></script>
 <script src="{{asset('lib_js/js/scripts.js')}}"></script>
+
+@yield('upload_js')
 
 @yield('footer')
 
