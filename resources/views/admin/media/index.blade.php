@@ -16,16 +16,16 @@
 
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
-	        <th>Id </th>
+            <th>Sr.No</th>
 	    	<th>Name</th>
 	        <th>Created At</th>
 	        <th>Action</th>
 	    </thead>
         <tbody>
 
-            @foreach($photos as $photo)
+            @foreach($photos as $key => $photo)
             <tr>
-            	<td> {{ $photo->id }} </td>
+                <td>{{ $key+ $photos->firstItem()}}</td>
                 <td> <img src="{{$photo->file ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails"></td>
                 <td> {{ $photo->created_at->diffForHumans() ?? 'No Date'}}</td>
                 <td>
@@ -42,4 +42,7 @@
         <tfoot>
         </tfoot>
    	</table>
+
+    {{$photos->render()}}
+
 @endsection

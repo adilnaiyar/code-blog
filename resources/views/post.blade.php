@@ -77,7 +77,7 @@
 			<!-- Comment -->
 			<div class="media">
 		    	<a class="pull-left" href="#">
-		        	<img class="media-object" src="{{$comment->photo ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails">
+		        	<img class="media-object" src="{{Auth::user()->gravatar ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails">
 		    	</a>
 		    	<div class="media-body">
 		        	<h4 class="media-heading">{{ $comment->author}}
@@ -94,7 +94,7 @@
 					        <div id = "nested-reply" class="media">
 					        	<h4 class="media-heading">Replies</h4>
 					            <a class="pull-left" href="#">
-					                <img class="media-object" src="{{$replies->photo ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails" alt="">
+					                <img class="media-object" src="{{Auth::user()->gravatar ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails" alt="">
 					            </a>
 					            <div class="media-body">
 					                <h4 class="media-heading">{{ $replies->author}}

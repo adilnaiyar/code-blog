@@ -62,4 +62,7 @@
         <tfoot>
         </tfoot>
    	</table>
+
+   	{{$users->render()}}
+   	
 @endsection

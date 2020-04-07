@@ -18,7 +18,7 @@ class CommentRepliesController extends Controller
      */
     public function index()
     {
-        $replies = CommentReply::all();
+        $replies = CommentReply::paginate(2);
         return view('admin.comment.reply.index', compact('replies'));
     }
 

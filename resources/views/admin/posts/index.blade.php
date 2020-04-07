@@ -51,7 +51,7 @@
                 <td> 
                 	{!! Form::open(['method' => 'delete', 'action'=>['AdminPostsController@destroy', $post->id]]) !!}
 
-                	<a href="{{route('home.post', $post->id)}}" class="btn btn-sm btn-info">View Post</a>
+                	<a href="{{route('home.post', $post->slug)}}" class="btn btn-sm btn-info">View Post</a>
 
                     <a href="{{route('posts.edit', $post->id)}}" class="btn btn-sm btn-warning"> Edit </a>
 
@@ -66,4 +66,7 @@
 
         </tfoot>
    	</table>
+
+    {{$posts->render()}}
+
 @endsection

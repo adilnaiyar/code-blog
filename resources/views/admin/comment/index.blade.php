@@ -96,5 +96,7 @@
    		<h1 class="text-center"> No Comment</h1>
    	@endif
 
+   	{{$comments->render()}}
+
 @endsection
 

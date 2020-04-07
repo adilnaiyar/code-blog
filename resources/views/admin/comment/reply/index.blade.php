@@ -91,5 +91,7 @@
    		<h1 class="text-center"> No reply</h1>
    	@endif
 
+   	{{$replies->render()}}
+
 @endsection
 

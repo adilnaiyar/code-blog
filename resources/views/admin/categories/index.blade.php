@@ -77,6 +77,9 @@
 
 		        </tfoot>
 		   	</table>
+
+		   	{{$categories->render()}}
+		   	
 	   </div>
 	</div>
 
