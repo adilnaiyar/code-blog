@@ -126,14 +126,16 @@ class AdminUsersController extends Controller
 
         }
 
-        if($file  = $request->file('photo_id'))
+         if($file = $request->file('photo_id'))
         {
             $name = time().$file->getClientOriginalName();
 
-            $file->move('/images/', $name);
+            $file->move('images', $name);
 
-            $photo          = Photo::create(['file' => $name]);
-            $input['photo'] = $photo->id;
+            $photo = Photo::create(['file' => $name]);
+
+            $input['photo_id'] = $photo->id;
+
         }
 
          $user->update($input);
@@ -162,7 +164,7 @@ class AdminUsersController extends Controller
 
         $user->delete();
 
-        Session::flash('success', 'User has been deleted');
+        Session::flash('delete', 'User has been deleted');
 
         return redirect('/admin/users');
     }

@@ -134,9 +134,14 @@
                             <li>
                                 <a href="{{route('posts.index')}}">All Posts</a>
                             </li>
-
                             <li>
                                 <a href="{{route('posts.create')}}">Create Post</a>
+                            </li>
+                             <li>
+                                <a href="{{route('comments.index')}}">All Comment</a>
+                            </li>
+                            <li>
+                                <a href="{{route('replies.index')}}">All Reply</a>
                             </li>
 
                         </ul>
@@ -166,7 +171,6 @@
                             <li>
                                 <a href="{{route('media.index')}}">All Media</a>
                             </li>
-
                             <li>
                                 <a href="{{route('media.create')}}">Upload Media</a>
                             </li>
@@ -325,6 +329,14 @@
 <script src="{{asset('lib_js/js/scripts.js')}}"></script>
 
 @yield('upload_js')
+
+<script type="text/javascript">
+    
+    $(".alert.flash").fadeTo(1000, 500).slideUp("slow", function(){
+        $(".alert.flash").slideUp("slow");
+    });
+
+</script>
 
 @yield('footer')
 

@@ -3,3 +3,11 @@
 #admin-page{
 	padding-top: 0px;
 }
+
+#nested-reply{
+	margin-top: 30px;
+}
+
+.comment-replies{
+	display: none;
+}

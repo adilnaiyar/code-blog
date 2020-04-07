@@ -102,7 +102,7 @@ class AdminCategoriesController extends Controller
     {
         Category::whereId($id)->delete();
 
-        Session::flash('success','Category has been deleted');
+        Session::flash('delete','Category has been deleted');
 
         return redirect('/admin/categories'); 
     }

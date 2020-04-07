@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Photo;
-use Illuminate\Http\Request;
+use App\Comment;
+use App\User;
+use App\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
-class AdminMediaController extends Controller
+class PostCommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,8 @@ class AdminMediaController extends Controller
      */
     public function index()
     {
-        $photos = Photo::all();
-        return view('admin.media.index', compact('photos'));
+        $comments = Comment::all();
+        return view('admin.comment.index', compact('comments'));
     }
 
     /**
@@ -26,7 +29,7 @@ class AdminMediaController extends Controller
      */
     public function create()
     {
-        return view('admin.media.create');
+        //
     }
 
     /**
@@ -37,14 +40,28 @@ class AdminMediaController extends Controller
      */
     public function store(Request $request)
     {
-            $file = $request->file('file');
-        
-            $name = time().$file->getClientOriginalName();
+        $user = Auth::User();
 
-            $file->move('images', $name);
+        $this->validate($request,[
+            
+            'body'       => 'required',
+        ]); 
 
-            $photo = Photo::create(['file' => $name]);
+        $data = [
 
+            'post_id'   => $request->post_id,
+            'is_active' => $user->is_active,
+            'author'    => $user->name,
+            'email'     => $user->email,
+            'photo'     => $user->photo->file,
+            'body'      => $request->body,
+        ];
+
+        Comment::create($data);
+
+        Session::flash('comment_message', 'Your message is submitted and is waiting moderation');
+
+        return redirect()->back();
     }
 
     /**
@@ -55,7 +72,11 @@ class AdminMediaController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        $comments = $post->comment;
+
+        return view('admin.comment.show', compact('comments'));
     }
 
     /**
@@ -78,7 +99,11 @@ class AdminMediaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Comment::findOrFail($id)->update($request->all());
+
+         Session::flash('comment_message', 'Your comment permission has been updated');
+
+        return redirect()->back();
     }
 
     /**
@@ -89,16 +114,10 @@ class AdminMediaController extends Controller
      */
     public function destroy($id)
     {
-        $photo = Photo::findOrFail($id);
+        Comment::findOrFail($id)->delete();
 
-        $path = 'C:\xampp\htdocs'.$photo->file;
-        
-        unlink($path);
+         Session::flash('delete', 'Your comment has been deleted');
 
-        $photo->delete();
-
-        Session::flash('delete', 'Photo has been deleted');
-
-        return redirect('/admin/media');
+        return redirect('/admin/comments');
     }
 }
