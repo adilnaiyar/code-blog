@@ -15,7 +15,7 @@ class AdminMediaController extends Controller
      */
     public function index()
     {
-        $photos = Photo::latest()->paginate(2);
+        $photos = Photo::paginate(5);
         return view('admin.media.index', compact('photos'));
     }
 
@@ -43,7 +43,7 @@ class AdminMediaController extends Controller
 
             $file->move('images', $name);
 
-            $photo = Photo::create(['file' => $name]);
+            Photo::create(['file' => $name]);
 
     }
 
@@ -88,17 +88,45 @@ class AdminMediaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $photo = Photo::findOrFail($id);
-
-        $path = 'C:\xampp\htdocs'.$photo->file;
+    { 
         
-        unlink($path);
+    }
 
-        $photo->delete();
+    public function deleteMedia(Request $request)
+    {
 
-        Session::flash('delete', 'Photo has been deleted');
+        // if(isset($request->delete_single))
+        // {
+        //     $photo = Photo::findOrFail($request->photo);
 
-        return redirect('/admin/media');
+        //     $path = 'C:\xampp\htdocs'.$photo->file;
+            
+        //     unlink($path);
+
+        //     $photo->delete();
+            
+        //     Session::flash('delete', 'Photo has been deleted');
+
+        //     return redirect()->back();
+        // }
+
+        if(isset($request->delete_all) && !empty($request->checkBoxArray))
+        {
+
+            $photos = Photo::findOrFail($request->checkBoxArray);
+
+            foreach ($photos as $photo) {
+
+                $path = 'C:\xampp\htdocs'.$photo->file;
+
+                unlink($path);
+                
+                $photo->delete();
+            }
+
+            Session::flash('delete', 'Photo has been deleted');
+
+            return redirect()->back();
+        }
     }
 }

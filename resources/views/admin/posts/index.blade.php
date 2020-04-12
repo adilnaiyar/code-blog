@@ -26,10 +26,10 @@
 	    <thead class="bg-success text-white text-center">
 	        <th>Id </th>
 	        <th>Photo</th>
+	        <th>Title</th>
 	        <th>Owner</th>
 	        <th>Category</th>
-	        <th>Title</th>
-	        <th>Body</th>
+	        <!-- <th>Body</th> -->
 	        <th>Created At</th>
 	        <th>Updated At</th>
 	        <th>Comment</th>
@@ -40,11 +40,11 @@
             @foreach($posts as $post)
             <tr>
             	<td> {{ $post->id }} </td>
-                <td> <img src="{{$post->photo->file ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails"> </td>
+                <td> <img src="{{$post->photo->file ?? asset('/images/blog001.jpg')}}" height="50" alt="photo" class="img-fluid img-thumbnails"> </td>
+                <td> {{ $post->title}}</td>
                 <td> {{ $post->user->name}} </td>
                 <td> {{ $post->category->name ?? 'Uncategorised'}} </td>
-                <td> {{ $post->title}}</td>
-                <td> {{ Illuminate\Support\Str::limit($post->body, 10)}}</td>
+                <!-- <td> {{ Illuminate\Support\Str::limit($post->body, 10)}}</td> -->
                 <td> {{ $post->created_at->diffForHumans()}}</td>
                 <td> {{ $post->updated_at->diffForHumans()}}</td>
                 <td> <a href="{{route('comments.show', $post->id)}}" class="btn btn-sm btn-primary">View Comment</a> </td>

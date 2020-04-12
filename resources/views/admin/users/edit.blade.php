@@ -9,8 +9,8 @@
 
 		<div class="col-sm-2">
 			
-			<img src="{{$user->photo->file ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails">
-			
+			<img src="{{$user->photo->file ?? asset('/images/avatar2.png')}}"  height="160" alt="photo" class="img-fluid img-thumbnails">
+
 		</div>
 
 		<div class="col-sm-9">

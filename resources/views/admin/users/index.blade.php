@@ -64,5 +64,5 @@
    	</table>
 
    	{{$users->render()}}
-   	
+
 @endsection

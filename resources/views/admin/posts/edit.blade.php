@@ -9,7 +9,7 @@
 
 		<div class="col-sm-2">
 			
-			<img src="{{$post->photo->file ?? asset('/images/img4.jpg')}}" height="50" alt="photo" class="img-responsive img-rounded"> 
+			<img src="{{$post->photo->file ?? asset('/images/blog001.jpg')}}" height="50" alt="photo" class="img-responsive img-rounded"> 
 		</div>
 
 		<div class="col-sm-9">
@@ -33,7 +33,7 @@
 					{!! Form::textarea('body', null, ['class' => 'form-control', 'rows'=>8] )!!}
 				</div>
 				<div class="form-group">
-					{!! Form::submit('Update User', ['class' => 'btn btn-sm btn-info']) !!}
+					{!! Form::submit('Update Post', ['class' => 'btn btn-sm btn-info']) !!}
 					<a class="btn btn-sm btn-danger btn-close" href="{{ route('posts.index') }}">Cancel</a>		
 				</div>
 

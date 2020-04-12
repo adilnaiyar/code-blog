@@ -11,26 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', ['as'=>'/', 'uses' => 'HomeController@index']);
+
+Route::get('/logout', ['as'=>'logout', 'uses' => 'Auth\LoginController@logout']);
 
 Route::group(['middleware' => 'admin'], function(){
 
-	Route::get('/admin', function(){
-
-		return view('admin.index');
-
-	});
+	Route::get('/admin', ['as'=>'admin', 'uses' => 'AdminController@index']);
 
 	Route::resource('admin/users',              'AdminUsersController');
 	Route::resource('admin/posts',              'AdminPostsController');
 	Route::resource('admin/categories',         'AdminCategoriesController');
 	Route::resource('admin/media',              'AdminMediaController');
+
+ 	Route::delete('admin/delete/media', ['as'=>'delete.media', 'uses' => 'AdminMediaController@deleteMedia']);
+
 	Route::resource('admin/comments',           'PostCommentsController');
 	Route::resource('admin/comment/replies',    'CommentRepliesController');
 
@@ -42,15 +39,16 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('comment/reply', 'CommentRepliesController@createReply');
 
-	});
+
+});
+
+
+ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+
+'\vendor\uniSharp\LaravelFilemanager\Lfm::routes()';
+
+});
 
 
 
-
-// Route::get('/admin/{id}', function($id){
-
-// $user = App\User::find($id)->role;
-// return $user;
-
-// });
 

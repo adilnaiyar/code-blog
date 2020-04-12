@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photo extends Model
 {
-    protected $upload = '../images/';
-    
+    protected $upload = '/codehacking/public/images/';
+                                                                                   
      protected $fillable = [
         'file',
     ];

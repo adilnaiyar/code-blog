@@ -149,7 +149,7 @@ class AdminPostsController extends Controller
 
         $comments = $posts->comment()->get();
 
-        return view('post', compact('posts', 'comments'));
+        return view('front.post', compact('posts', 'comments'));
 
     }
 
