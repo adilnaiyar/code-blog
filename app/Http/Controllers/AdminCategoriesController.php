@@ -16,7 +16,7 @@ class AdminCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::paginate(2);
+        $categories = Category::latest()->paginate(4);
         return view('admin.categories.index', compact('categories'));
     }
 

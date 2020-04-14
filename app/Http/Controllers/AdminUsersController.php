@@ -19,7 +19,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(2);
+        $users = User::latest()->paginate(4);
         return view('admin.users.index', compact('users'));
     }
 
@@ -44,19 +44,10 @@ class AdminUsersController extends Controller
     public function store(UsersRequest $request)
     {
 
-        if(trim($request->password) == '')
-        {
-            $input = $request->except('password');
+        $input = $request->all();
 
-        }else{
-
-            $input = $request->all();
-
-            $input['password'] = bcrypt($request->password); 
-
-        }
-
-
+        $input['password'] = bcrypt($request->password); 
+        
         if($file = $request->file('photo_id'))
         {
             $name = time().$file->getClientOriginalName();
@@ -85,7 +76,8 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        //
+        // $users = User::findOrFail($id);
+        // return view('admin.users.show', compact('users'));
     }
 
     /**

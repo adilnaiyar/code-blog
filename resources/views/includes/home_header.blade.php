@@ -9,20 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Home</title>
+    <title>CodeHacking</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
    <link href="{{asset('lib_css/css/blog-home.css')}}" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -39,20 +32,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Codehacking</a>
+                <a class="navbar-brand" href="{{url('home')}}">CodeHacking</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Services</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                <ul class="nav navbar-nav navbar-right">
+
+                    @if(Auth::guest())
+                        <li> <a href="{{url('login')}}">Login</a> </li>
+                        <li> <a href="{{url('register')}}">Register</a> </li>
+                    @else
+                        <li> <a href="{{url('admin')}}">Admin</a> </li>
+                        <li> <a href="{{url('logout')}}">Logout</a> </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

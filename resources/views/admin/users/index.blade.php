@@ -3,28 +3,14 @@
 
 @section('content')
 
-	<h1>Users List</h1>
+	<h1 class="page-header">Users List</h1>
 
-	@if ($message = Session::get('success'))
-	    		<div class="alert alert-success alert-dismissible flash">
-		    		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    				<span aria-hidden="true">&times;</span>
-  					</button>
-	        		<p>{{ $message }}</p>
-	    		</div>
-			@endif
-			@if ($message = Session::get('delete'))
-	    		<div class="alert alert-danger alert-dismissible flash">
-		    		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    				<span aria-hidden="true">&times;</span>
-  					</button>
-	        		<p>{{ $message }}</p>
-	    		</div>
-			@endif
+	@include('includes.session_error')
 
+    @if(count($users)>0) 
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
-	        <th>Id </th>
+	        <th>Sr.no</th>
 	        <th>Photo</th>
 	        <th>Name</th>
 	        <th>Email </th>
@@ -36,10 +22,10 @@
 	    </thead>
         <tbody>
 
-            @foreach($users as $user)
+            @foreach($users as $key => $user)
             <tr>
-            	<td> {{ $user->id }} </td>
-                <td> <img src="{{$user->photo->file ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails"> </td>
+            	<td> {{ $key + $users->firstItem()}} </td>
+                <td> <img src="{{$user->photo->file ?? $user->user_photo_placeholder()}}" height="50" alt="photo" class="img-fluid img-thumbnails"> </td>
                 <td> {{ $user->name }} </td>
                 <td> {{ $user->email }} </td>
                 <td> {{ $user->role->name ?? 'No role'}}</td>
@@ -62,6 +48,10 @@
         <tfoot>
         </tfoot>
    	</table>
+
+   	@else
+        <em><h4 class="text-center"> No User</h4></em>   
+    @endif
 
    	{{$users->render()}}
 

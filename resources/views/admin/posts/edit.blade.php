@@ -3,16 +3,18 @@
 
 @section('content')
 
-	<h1>Edit Post</h1>
+	<h1 class="page-header">Edit Post</h1>
 
 	<div class="row">
 
 		<div class="col-sm-2">
 			
-			<img src="{{$post->photo->file ?? asset('/images/blog001.jpg')}}" height="50" alt="photo" class="img-responsive img-rounded"> 
+			<img src="{{$post->photo->file ?? $post->photo_placeholder()}}"  height="160" alt="photo" class="img-responsive img-rounded"> 
 		</div>
 
 		<div class="col-sm-9">
+
+			@include('includes.form_errors')
 
 			{!! Form::model($post, ['method' => 'put', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
 		
@@ -39,10 +41,9 @@
 
 			{!! Form::close() !!}
 
-			@include('includes.form_errors')
-
 		</div>
 
 	</div>
 
 @endsection
+

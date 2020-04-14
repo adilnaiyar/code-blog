@@ -1,19 +1,18 @@
 @extends('layouts.admin')
 
-
 @section('content')
 
-	<h1>Edit Users</h1>
+	<h1 class="page-header">Edit User</h1>
 
 	<div class="row">
 
 		<div class="col-sm-2">
-			
-			<img src="{{$user->photo->file ?? asset('/images/avatar2.png')}}"  height="160" alt="photo" class="img-fluid img-thumbnails">
-
+			<img src="{{$user->photo->file ?? $user->user_photo_placeholder()}}"  height="160" alt="photo" class="img-fluid img-thumbnails">
 		</div>
 
 		<div class="col-sm-9">
+
+		@include('includes.form_errors')
 
 		{!! Form::model($user, ['method' => 'put', 'action'=>['AdminUsersController@update', $user->id], 'files'=>true]) !!}
 		
@@ -45,10 +44,7 @@
 				{!! Form::submit('Submit User', ['class' => 'btn btn-sm btn-info']) !!}
 				<a class="btn btn-sm btn-danger btn-close" href="{{ route('users.index') }}">Cancel</a>	
 			</div>
-
 		{!! Form::close() !!}
-
-		@include('includes.form_errors')
 
 		</div>
 	</div>

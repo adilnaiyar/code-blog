@@ -20,7 +20,7 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(2);
+        $posts = Post::latest()->paginate(4);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -103,7 +103,7 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostsCreateRequest $request, $id)
     {
         $input = $request->all();
 
@@ -141,16 +141,6 @@ class AdminPostsController extends Controller
         Session::flash('delete', 'Post has been deleted');
 
         return redirect('/admin/posts');
-    }
-
-    public function post($slug)
-    {
-        $posts = Post::whereSlug($slug)->firstOrFail();
-
-        $comments = $posts->comment()->get();
-
-        return view('front.post', compact('posts', 'comments'));
-
     }
 
 }

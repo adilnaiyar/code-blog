@@ -16,31 +16,20 @@
                 </div>
 
                 <!-- Blog Categories Well -->
-                <div class="well">
+                <div class="well ">
                     <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
+                    <div class="row ">
+                        <div class="col-lg-8">
+                            <ul class="list-group">
+                                @if(count($categories)>0)
+                                    @foreach($categories as $category)
+                                        <li class="list-group-item">
+                                            <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
+                                        </li>
+                                    @endforeach
+                                @else
+                                   <em><h4 class="text-center"> No Categories</h4></em>  
+                                @endif    
                             </ul>
                         </div>
                     </div>
@@ -49,7 +38,7 @@
 
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Side Widget Well</h4>
+                    <h4 >Side Widget Well</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
                 </div>
 
@@ -64,7 +53,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="text-center">Copyright &copy; CodeHacking {{\Carbon\Carbon::now()->year}}</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -81,10 +70,16 @@
 
     <script type="text/javascript">
 
-        $(".alert.flash").fadeTo(1000, 500).slideUp("slow", function(){
-            $(".alert.flash").slideUp("slow");
-        });
+        //Session Message
+        // $(".alert.flash").fadeTo(1000, 500).slideUp("slow", function(){
+        //     $(".alert.flash").slideUp("slow");
+        // });
 
+        //Toggle Button
+        $(".toogle-reply").click(function(){
+            $(".comment-replies").slideToggle('slow'); 
+        });
+        
     </script>
 
 </body>

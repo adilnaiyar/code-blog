@@ -12,12 +12,9 @@ class Photo extends Model
         'file',
     ];
 
-   public function getFileAttribute($value)
+    public function getFileAttribute($value)
     {
-        // $directory = '/codehacking/public/images/';
-
-        // return $directory. $value;  
-
+        
         return $this->upload.$value;
     }
 

@@ -62,10 +62,15 @@ class User extends Authenticatable
         return $this->hasMany('App\Post'); 
     }
 
-    public function getGravatarAttribute()
-    {
-        $hash = md5(strtolower(trim($this->attributes['email'])));
+    // public function getGravatarAttribute()
+    // {
+    //     $hash = md5(strtolower(trim($this->attributes['email'])));
 
-        return "http://www.gravatar.com/avatar/$hash";
+    //     return "http://www.gravatar.com/avatar/$hash";
+    // }
+
+    public function user_photo_placeholder()
+    {
+        return "https://via.placeholder.com/200x200.png?text= No Photo";
     }
 }

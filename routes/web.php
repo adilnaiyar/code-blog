@@ -13,7 +13,12 @@
 
 Auth::routes();
 
-Route::get('/home', ['as'=>'/', 'uses' => 'HomeController@index']);
+Route::get('/home', ['as'=>'home', 'uses' => 'HomeController@index']);
+
+Route::get('/posts/{id}', ['as'=>'home.post', 'uses' =>'HomeController@post']);
+
+Route::get('/categories/{id}', ['as'=>'home.categories', 'uses' =>'HomeController@categories']);
+
 
 Route::get('/logout', ['as'=>'logout', 'uses' => 'Auth\LoginController@logout']);
 
@@ -32,8 +37,6 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::resource('admin/comment/replies',    'CommentRepliesController');
 
 });
-
-Route::get('/posts/{id}', ['as'=>'home.post', 'uses' =>'AdminPostsController@post']);
 
 Route::group(['middleware' => 'auth'], function(){
 

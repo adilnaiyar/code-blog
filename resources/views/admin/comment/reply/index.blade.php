@@ -3,29 +3,15 @@
 
 @section('content')
 
-	<h1>Replies List</h1>
+	<h1 class="page-header">Replies List</h1>
 
-	@if ($message = Session::get('comment_reply'))
-	    <div class="alert alert-success alert-dismissible flash">
-	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
-	        <p>{{ $message }}</p>
-	    </div>
-	@endif
-	@if ($message = Session::get('delete'))
-	    <div class="alert alert-danger alert-dismissible flash">
-	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
-	        <p>{{ $message }}</p>
-	    </div>
-	@endif
+	@include('includes.session_error')
 
 	@if(count($replies)>0)
+
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
-	        <th>Id </th>
+	        <th>Sr.no</th>
 	    	<th>Author</th>
 	        <th>Email</th>
 	        <th>Body</th>
@@ -36,9 +22,9 @@
 	    </thead>
         <tbody>
 
-            @foreach($replies as $reply)
+            @foreach($replies as $key => $reply)
             <tr>
-            	<td> {{ $reply->id }} </td>
+            	<td> {{ $key + $replies->firstItem()}} </td>
             	<td> {{ $reply->author }} </td>
             	<td> {{ $reply->email }} </td>
             	<td> {{ $reply->body }} </td>
@@ -70,7 +56,7 @@
 
 					@endif
                 </td>
-                <td> <a href="{{route('home.post', $reply->comment->post->id)}}" class="btn btn-sm btn-info">View Post</a> </td>
+                <td> <a href="{{route('home.post', $reply->comment->post->slug)}}" class="btn btn-sm btn-info">View Post</a> </td>
                 <td>
 					{!! Form::open(['method' => 'delete', 'action'=> ['CommentRepliesController@destroy',$reply->id]]) !!}
 
@@ -88,7 +74,7 @@
    	</table>
 
    	@else
-   		<h1 class="text-center"> No reply</h1>
+   		<em><h4 class="text-center"> No Reply</h4></em> 	
    	@endif
 
    	{{$replies->render()}}

@@ -18,7 +18,7 @@ class CommentRepliesController extends Controller
      */
     public function index()
     {
-        $replies = CommentReply::paginate(2);
+        $replies = CommentReply::latest()->paginate(4);
         return view('admin.comment.reply.index', compact('replies'));
     }
 
@@ -80,7 +80,7 @@ class CommentRepliesController extends Controller
     {
         $comments = Comment::findOrFail($id);
 
-        $replies  = $comments->reply;
+        $replies  = $comments->reply()->latest()->paginate(4);
 
         return view('admin.comment.reply.show', compact('replies'));
     }

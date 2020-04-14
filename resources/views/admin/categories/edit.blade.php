@@ -5,7 +5,7 @@
 
 	<div class="row">
 		<div class="col-sm-6">
-			<h2>Edit Categories</h2>
+			<h1 class="page-header">Edit Categories</h1>
 			
 			{!! Form::model($categories, ['method' => 'put', 'action'=>['AdminCategoriesController@update', $categories->id]]) !!}
 		

@@ -21,29 +21,21 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
+
+                                @if(count($categories)>0)
+
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <em><h4 class="text-center"> No Post</h4></em>   
+                                @endif    
+
                             </ul>
                         </div>
-                        <!-- /.col-lg-6 -->
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
+                        
                         <!-- /.col-lg-6 -->
                     </div>
                     <!-- /.row -->
@@ -66,7 +58,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p class="text-center">Copyright &copy; CodeHacking {{\Carbon\Carbon::now()->year}}</p>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>

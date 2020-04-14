@@ -3,7 +3,9 @@
 
 @section('content')
 
-	<h1>Create Users</h1>
+	 <h1 class="page-header">Create User</h1>
+
+	@include('includes.form_errors')
 
 	{!! Form::open(['method' => 'post', 'action'=>'AdminUsersController@store', 'files'=>true]) !!}
 	
@@ -37,7 +39,5 @@
 		</div>
 
 	{!! Form::close() !!}
-
-	@include('includes.form_errors')
 
 @endsection

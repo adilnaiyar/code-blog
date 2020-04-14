@@ -3,7 +3,9 @@
 
 @section('content')
 
-	<h1>Media List</h1>
+	<h1 class="page-header">Media List</h1>
+
+    @if(count($photos)>0) 
 
     <form action="{{ route('delete.media') }}" method="POST" class="form-inline">
 
@@ -20,19 +22,12 @@
             </div>
         </div>
    
-    @if ($message = Session::get('delete'))
-        <div class="alert alert-danger alert-dismissible flash">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <p>{{ $message }}</p>
-        </div>
-    @endif
-
+    @include('includes.session_error')
+    
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
             <th><input type="checkbox" id="options"></th>
-            <th>Id</th>
+            <th>Sr.no</th>
 	    	<th>Name</th>
 	        <th>Created At</th>
 	       <!--  <th>Action</th> -->
@@ -42,7 +37,7 @@
             @foreach($photos as $key => $photo)
             <tr>
                 <td><input class="checkBoxes" type="checkbox" name="checkBoxArray[]" value="{{$photo->id}}"></td>
-                <td>{{$photo->id}}</td>
+                <td>{{ $key + $photos->firstItem()}}</td>
                 <td> <img src="{{$photo->file ?? asset('/images/avatar2.png')}}" height="50" alt="photo" class="img-fluid img-thumbnails"></td>
                 <td> {{ $photo->created_at->diffForHumans() ?? 'No Date'}}</td>
                 <!-- <td>
@@ -67,6 +62,10 @@
    	</table>
 
     </form>
+
+        @else
+            <em><h4 class="text-center"> No Photo</h4></em>  
+        @endif
 
     {{$photos->render()}}
 

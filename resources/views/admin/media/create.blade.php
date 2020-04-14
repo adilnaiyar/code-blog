@@ -8,14 +8,16 @@
 
 @section('content')
 
-<h1> Upload Media</h1>
+	<h1 class="page-header"> Upload Media</h1>
+
+	@include('includes.form_errors') 
 
 	{!! Form::open(['method' => 'post', 'action'=>'AdminMediaController@store', 'class' => 'dropzone']) !!}
 	
 
 	{!! Form::close() !!}
 
-	@include('includes.form_errors')
+	
 
 @endsection
 

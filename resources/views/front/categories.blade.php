@@ -2,7 +2,7 @@
 
 @include('includes.home_header')
 
-    <h1 class="text-center">CodeHacking Blog</h1>
+    <h1 class="text-center">{{$category->name}}</h1>
 
     <!-- Page Content -->
     <div class="container">
@@ -30,16 +30,15 @@
                 @endforeach    
 
             @else
-                <em><h4 class="text-center"> No Blog</h4></em>   
+                <em><h4 class="text-center"> No Blog For This category</h4></em>   
             @endif
 
             <hr>
 
             <!-- Pagination -->
             {{$posts->render()}}
-        </div>
 
-    <!-- #Page Content -->
+            </div>
 
 @include('includes.home_footer')
 

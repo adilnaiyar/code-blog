@@ -3,29 +3,14 @@
 
 @section('content')
 
-	<h1>Comments List</h1>
+	<h1 class="page-header">Comments List</h1>
 
-	@if ($message = Session::get('comment_message'))
-	    <div class="alert alert-success alert-dismissible flash">
-	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
-	        <p>{{ $message }}</p>
-	    </div>
-	@endif
-	@if ($message = Session::get('delete'))
-	    <div class="alert alert-danger alert-dismissible flash">
-	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    			<span aria-hidden="true">&times;</span>
-  			</button>
-	        <p>{{ $message }}</p>
-	    </div>
-	@endif
+	@include('includes.session_error')
 
 	@if(count($comments)>0)
 	<table class="table table-striped table-dark">
 	    <thead class="bg-success text-white">
-	        <th>Id </th>
+	        <th>Sr.no</th>
 	    	<th>Author</th>
 	        <th>Email</th>
 	        <th>Body</th>
@@ -37,9 +22,9 @@
 	    </thead>
         <tbody>
 
-            @foreach($comments as $comment)
+            @foreach($comments as $key => $comment)
             <tr>
-            	<td> {{ $comment->id }} </td>
+            	<td> {{ $key + $comments->firstItem()}} </td>
             	<td> {{ $comment->author }} </td>
             	<td> {{ $comment->email }} </td>
             	<td> {{ $comment->body }} </td>
@@ -72,7 +57,7 @@
 					@endif
                 </td>
 
-                <td> <a href="{{route('home.post', $comment->post->id)}}" class="btn btn-sm btn-info">View Post</a> </td>
+                <td> <a href="{{route('home.post', $comment->post->slug)}}" class="btn btn-sm btn-info">View Post</a> </td>
                 
                 <td> <a href="{{route('replies.show', $comment->id)}}" class="btn btn-sm btn-primary">View Reply</a> </td>
 
@@ -93,7 +78,7 @@
    	</table>
 
    	@else
-   		<h1 class="text-center"> No Comment</h1>
+   		<em><h4 class="text-center"> No Comment</h4></em>
    	@endif
 
    	{{$comments->render()}}

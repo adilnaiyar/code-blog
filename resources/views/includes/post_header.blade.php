@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Post</title>
+    <title>CodeHacking</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
@@ -41,20 +41,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Codehacking</a>
+                <a class="navbar-brand" href="{{url('home')}}">Codehacking</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="{{route('posts.index')}}">Posts</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
+                <ul class="nav navbar-nav navbar-right">
+                    @if(Auth::guest())
+                        <li> <a href="{{url('login')}}">Login</a> </li>
+                        <li> <a href="{{url('register')}}">Register</a> </li>
+                    @else
+                        <li> <a href="{{url('admin')}}">Admin</a> </li>
+                        <li> <a href="{{url('logout')}}">Logout</a> </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
