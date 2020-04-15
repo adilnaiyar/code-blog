@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>Admin</title>
-
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/blog-post.css')}}" rel="stylesheet">
@@ -19,26 +15,12 @@
     <link href="{{asset('lib_css/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/styles.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/custom.css')}}" rel="stylesheet">
-
     <!-- TinyMce -->
     <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-
-
     @yield('upload_css')
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-
 </head>
-
 <body id="admin-page">
-
 <div id="wrapper">
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
@@ -51,11 +33,7 @@
             <a class="navbar-brand" href="{{route('home')}}">Home</a>
         </div>
         <!-- /.navbar-header -->
-
-
-
         <ul class="nav navbar-top-links navbar-right" >
-
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -71,7 +49,6 @@
             </li>
             <!-- /.dropdown -->
         </ul>
-
         {{--<ul class="nav navbar-nav navbar-right">--}}
         {{--@if(auth()->guest())--}}
         {{--@if(!Request::is('auth/login'))--}}
@@ -91,7 +68,6 @@
         {{--</li>--}}
         {{--@endif--}}
         {{--</ul>--}}
-
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
@@ -106,72 +82,37 @@
                         </div>
                         <!-- /input-group -->
                     </li>
-                    <li>
-                        <a href="{{route('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-
+                    <li><a href="{{route('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
                     <li>
                         <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('users.index')}}">All Users</a>
-                            </li>
-
-                            <li>
-                                <a href="{{route('users.create')}}">Create User</a>
-                            </li>
-
+                            <li><a href="{{route('users.index')}}">All Users</a></li>
+                            <li><a href="{{route('users.create')}}">Create User</a></li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
                     <li>
                         <a href="#"><i class="fa fa-newspaper-o"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('posts.index')}}">All Posts</a>
-                            </li>
-                            <li>
-                                <a href="{{route('posts.create')}}">Create Post</a>
-                            </li>
-                             <li>
-                                <a href="{{route('comments.index')}}">All Comment</a>
-                            </li>
-                            <li>
-                                <a href="{{route('replies.index')}}">All Reply</a>
-                            </li>
-
+                            <li><a href="{{route('posts.index')}}">All Posts</a></li>
+                            <li><a href="{{route('posts.create')}}">Create Post</a></li>
+                            <li><a href="{{route('comments.index')}}">All Comment</a></li>
+                            <li><a href="{{route('replies.index')}}">All Reply</a></li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
                     <li>
                         <a href="#"><i class="fa fa-list-alt"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('categories.index')}}">All Categories</a>
-                            </li>
-
-                            <!-- <li>
-                                <a href="{{route('categories.create')}}">Create Category</a>
-                            </li> -->
-
+                            <li><a href="{{route('categories.index')}}">All Categories</a></li>
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
                     <li>
                         <a href="#"><i class="fa fa-picture-o"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{{route('media.index')}}">All Media</a>
-                            </li>
-                            <li>
-                                <a href="{{route('media.create')}}">Upload Media</a>
-                            </li>
-
+                            <li><a href="{{route('media.index')}}">All Media</a></li>
+                            <li><a href="{{route('media.create')}}">Upload Media</a></li>
                         </ul>
                     <!-- /.nav-second-level -->
                     </li>
@@ -181,32 +122,21 @@
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
                 <li>
                     <a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>
                 </li>
-
                 <li>
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="">All Posts</a>
-                        </li>
-
-                        <li>
-                            <a href="">Create Post</a>
-                        </li>
-
+                        <li><a href="">All Posts</a></li>
+                        <li><a href="">Create Post</a></li>
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
             </ul>
-
         </div>
-
     </div>
-
 </div>

@@ -1,5 +1,5 @@
-<!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+        <!-- Blog Sidebar Widgets Column -->
+            <div class="col-md-4" style="margin-top: 10px;">
 
                 <!-- Blog Search Well -->
                 <div class="well">
@@ -17,23 +17,29 @@
 
                 <!-- Blog Categories Well -->
                 <div class="well ">
-                    <h4>Blog Categories</h4>
                     <div class="row ">
                         <div class="col-lg-8">
-                            <ul class="list-group">
-                                @if(count($categories)>0)
-                                    @foreach($categories as $category)
-                                        <li class="list-group-item">
-                                            <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
-                                        </li>
-                                    @endforeach
-                                @else
-                                   <em><h4 class="text-center"> No Categories</h4></em>  
-                                @endif    
-                            </ul>
-                        </div>
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    <h4>Blog Categories</h4>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    @if(count($categories)>0)
+                                        @foreach($categories as $category)
+                                            <li class="list-group-item">
+                                                <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                        <em><h4 class="text-center"> No Categories</h4></em>  
+                                    @endif
+                                    
+                                    <!-- Pagination -->
+                                    {{$categories->render()}}    
+                                </ul>
+                            </div>
+                         </div>
                     </div>
-                    <!-- /.row -->
                 </div>
 
                 <!-- Side Widget Well -->
@@ -63,10 +69,10 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-   <script src="{{asset('lib_js/js/jquery.js')}}"></script>
+    <script src="{{asset('lib_js/js/jquery.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-   <script src="{{asset('lib_js/js/bootstrap.js')}}"></script>
+    <script src="{{asset('lib_js/js/bootstrap.js')}}"></script>
 
     <script type="text/javascript">
 

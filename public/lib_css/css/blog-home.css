@@ -1,14 +1,47 @@
-/*!
- * Start Bootstrap - Blog Post HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 
-body {
-    padding-top: 70px;  /*Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+body{
+  font-family: 'Montserrat';
 }
 
+/* Title */
+#title-one{
+  background-color: #f64b3c;
+  color:#fff;
+  text-align: left;
+  padding: 5% 10% 2%;
+}
+
+#title-two{
+  background-color: #f64b3c;
+  color:#fff;
+  padding: 5% 8% 4%;
+}
+
+/* Heading */
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Montserrat-Bold';
+}
+
+/* Big Heading */
+.big-heading{
+  font-family: 'Montserrat-Black';
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+/* Name Heading */
+.name-heading{
+  font-family: 'Montserrat-Black';
+  padding-top: 80px;
+}
+
+/*Image*/
+.title-image{
+  width: 80%;
+}
+
+/*Footer*/
 footer {
+	font-family: 'Montserrat-Bold';
     margin: 50px 0;
 }
-
