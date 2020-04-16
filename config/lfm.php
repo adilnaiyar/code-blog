@@ -25,6 +25,7 @@ return [
     | If both options are set to false, then shared folder will be activated.
     |
      */
+    
 
     'allow_private_folder'     => true,
 
@@ -59,7 +60,7 @@ return [
             ],
         ],
         'image' => [
-            'folder_name'  => 'photos',
+            'folder_name'  => 'images',
             'startup_view' => 'list',
             'max_size'     => 50000, // size in KB
             'valid_mime'   => [

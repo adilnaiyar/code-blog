@@ -22,7 +22,7 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('body','Description:')!!}
-			{!! Form::textarea('body', null, ['class' => 'form-control','rows'=>8] )!!}
+			{!! Form::textarea('body', null, ['id'=>'mytextarea', 'class' => 'form-control','rows'=>8] )!!}
 		</div>
 		<div class="form-group">
 			{!! Form::submit('Submit Post', ['class' => 'btn btn-sm btn-info']) !!}

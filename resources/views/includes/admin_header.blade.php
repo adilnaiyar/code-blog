@@ -16,7 +16,7 @@
     <link href="{{asset('lib_css/css/styles.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/custom.css')}}" rel="stylesheet">
     <!-- TinyMce -->
-    <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
+   <script src="https://cloud.tinymce.com/4/tinymce.min.js"></script>
     @yield('upload_css')
 </head>
 <body id="admin-page">
