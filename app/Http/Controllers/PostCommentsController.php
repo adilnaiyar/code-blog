@@ -45,7 +45,9 @@ class PostCommentsController extends Controller
         $this->validate($request,[
             
             'body'       => 'required',
-        ]); 
+        ], [
+                'body.required' => 'Comment should not be empty.',
+            ]); 
 
         $data = [
 

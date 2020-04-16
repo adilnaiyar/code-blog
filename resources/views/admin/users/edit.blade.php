@@ -25,7 +25,7 @@
 				{!! Form::email('email', null, ['class' => 'form-control'] )!!}
 			</div>
 
-			@if($user->role->name == "Administrator")
+			@if(Auth::User()->role->name == "Administrator")
 			<div class="form-group">
 				{!! Form::label('role_id','Role:')!!}
 				{!! Form::select('role_id', $roles, null, ['class' => 'form-control'] )!!}

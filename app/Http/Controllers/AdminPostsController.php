@@ -7,6 +7,7 @@ use App\User;
 use App\Photo;
 use App\Category;
 use App\Http\Requests\PostsCreateRequest;
+use App\Http\Requests\PostsEditRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -27,7 +28,7 @@ class AdminPostsController extends Controller
             $posts = Post::latest()->paginate(4);
             return view('admin.posts.index', compact('posts'));
         }else{
-            
+
             $posts = $user->posts()->latest()->paginate(4);;
             return view('admin.posts.index', compact('posts'));
         }
@@ -76,7 +77,6 @@ class AdminPostsController extends Controller
 
         return redirect('/admin/posts');
 
-        //return $request->all();
     }
 
     /**
@@ -112,7 +112,7 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostsCreateRequest $request, $id)
+    public function update(PostsEditRequest $request, $id)
     {
         $input = $request->all();
 

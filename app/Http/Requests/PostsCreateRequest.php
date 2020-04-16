@@ -25,10 +25,24 @@ class PostsCreateRequest extends FormRequest
     {
         return [
             
-            'title'       => 'required',
+            'title'       => 'required|unique:posts|max:50',
             'category_id' => 'required',
-            'body'        => 'required',
-            
+            'body'        => 'required',     
+        ];
+    }
+    
+    /**
+     * Get the validation messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'title.required'        => "The Title is Required",
+            'title.unique'          => "This Title is already been taken", 
+            'category_id.required'  => "The Category is Required",
+            'body.required'         => "The Description is Required",  
         ];
     }
 }

@@ -56,7 +56,9 @@ class CommentRepliesController extends Controller
         $this->validate($request,[
             
             'body'       => 'required',
-        ]); 
+        ],  [
+                'body.required' => 'Reply should not be empty.',
+            ]); 
 
         $data = [
 

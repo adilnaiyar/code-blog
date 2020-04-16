@@ -25,11 +25,23 @@ class UserEditRequest extends FormRequest
     {
         return [
             
-            'name'      => 'required',
-            'email'     => 'required',
-            'role_id'   => 'required',
-            'is_active' => 'required',
-            
+            'name'      => 'required|min:4|max:50',
+            'email'     => 'required|email',
+        ];
+    }
+    
+    /**
+     * Get the validation messages.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'name.required'     => "The Name is Required",
+            'name.min'          => "The Name must be at least 4 characters",
+            'email.required'    => "The Email is Required",
+            'email.email'       => "Invalid E-mail Address",
         ];
     }
 }
