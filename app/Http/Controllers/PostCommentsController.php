@@ -17,7 +17,7 @@ class PostCommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
         $comments = Comment::latest()->paginate(4);
         return view('admin.comment.index', compact('comments'));
     }

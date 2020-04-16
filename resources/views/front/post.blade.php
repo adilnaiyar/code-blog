@@ -1,7 +1,7 @@
 @include('includes.post_header')
 
 	<!-- Title -->
-	<section id="title">
+	<section id="title-three">
         <div class="Container">
             <div class="row">
                 <div class="col-lg-12 ">
@@ -15,8 +15,10 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-            	@include('includes.session_error')
-            	@include('includes.form_errors')
+            	<div class="error" style="margin-top: 20px;">
+	            	@include('includes.session_error')
+	            	@include('includes.form_errors')
+            	</div>
 				<hr>
 				<p><span class="glyphicon glyphicon-time"></span> Posted on {{$posts->created_at->diffForHumans()}}</p>
 				<hr>
@@ -46,6 +48,7 @@
 							@if($comment->is_active == 1)
 								<div class="media">
 								<h4 class="media-heading"><em>Comment:</em></h4>
+
 								@if(Auth::check())
 								<button class="toogle-reply btn btn-info pull-right ">Reply</button>
 								@endif
@@ -57,6 +60,7 @@
 						            	<small>{{ $comment->created_at->diffForHumans() }}</small>
 						        	</h4>
 						        	<p>{{ $comment->body }}</p>
+
 						        	<div class="comment-replies ">
 										<h4>Reply:</h4>
 						                {!! Form::open(['method' => 'post', 'action'=>'CommentRepliesController@createReply']) !!}

@@ -1,6 +1,5 @@
         <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4" style="margin-top: 10px;">
-
                 <!-- Blog Search Well -->
                 <div class="well">
                     <h4>Blog Search</h4>
@@ -14,7 +13,6 @@
                     </div>
                     <!-- /.input-group -->
                 </div>
-
                 <!-- Blog Categories Well -->
                 <div class="well ">
                     <div class="row ">
@@ -33,7 +31,6 @@
                                     @else
                                         <em><h4 class="text-center"> No Categories</h4></em>  
                                     @endif
-                                    
                                     <!-- Pagination -->
                                     {{$categories->render()}}    
                                 </ul>
@@ -41,36 +38,30 @@
                          </div>
                     </div>
                 </div>
-
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4 >Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>Programming Quotes:</h4>
+                    <p><em>“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live”</em></p>
+                    <h5> ― John Woods</h5>
                 </div>
-
             </div>
-
         </div>
         <!-- /.row -->
-
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p class="text-center">Copyright &copy; CodeHacking {{\Carbon\Carbon::now()->year}}</p>
+                    <p class="text-center">&copy; Copyright {{\Carbon\Carbon::now()->year}} #CodeHacking</p>
                 </div>
             </div>
             <!-- /.row -->
         </footer>
-
     </div>
     <!-- /.container -->
 
     <!-- jQuery -->
     <script src="{{asset('lib_js/js/jquery.js')}}"></script>
-
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset('lib_js/js/bootstrap.js')}}"></script>
 

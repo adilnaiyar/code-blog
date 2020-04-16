@@ -24,6 +24,8 @@
 				{!! Form::label('email','Email:')!!}
 				{!! Form::email('email', null, ['class' => 'form-control'] )!!}
 			</div>
+
+			@if($user->role->name == "Administrator")
 			<div class="form-group">
 				{!! Form::label('role_id','Role:')!!}
 				{!! Form::select('role_id', $roles, null, ['class' => 'form-control'] )!!}
@@ -32,6 +34,8 @@
 				{!! Form::label('is_active','Status:')!!}
 				{!! Form::select('is_active', array(1 => 'Active', 0 => 'Not Active'), null, ['class' => 'form-control'] )!!}
 			</div>
+			@endif
+			
 			<div class="form-group">
 				{!! Form::label('photo_id','Photo:')!!}
 				{!! Form::file('photo_id', ['class' => 'form-control'] )!!}

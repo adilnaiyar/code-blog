@@ -76,8 +76,7 @@ class AdminUsersController extends Controller
      */
     public function show($id)
     {
-        // $users = User::findOrFail($id);
-        // return view('admin.users.show', compact('users'));
+        //
     }
 
     /**
@@ -135,9 +134,6 @@ class AdminUsersController extends Controller
          Session::flash('success', 'User has been updated');
 
          return redirect('/admin/users');
-
-
-        //return $request->all();
     }
 
     /**

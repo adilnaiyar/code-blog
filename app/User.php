@@ -47,27 +47,20 @@ class User extends Authenticatable
         return $this->belongsTo('App\Photo'); 
     }
 
-    public function isAdmin()
-    {
-        if($this->role->name == 'Administrator' && $this->is_active == 1)
-        {
-            return true;
-        }
+    // public function isAdmin()
+    // {
+    //     if($this->role->name == 'Administrator' && $this->is_active == 1)
+    //     {
+    //         return true;
 
-        return false;
-    }
+    //     }
+    //         return false;
+    // }
 
     public function posts()
     {
         return $this->hasMany('App\Post'); 
     }
-
-    // public function getGravatarAttribute()
-    // {
-    //     $hash = md5(strtolower(trim($this->attributes['email'])));
-
-    //     return "http://www.gravatar.com/avatar/$hash";
-    // }
 
     public function user_photo_placeholder()
     {

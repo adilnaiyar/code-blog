@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        
+        //
     }
 
     /**
@@ -32,6 +32,12 @@ class HomeController extends Controller
         return view('front.home', compact('posts', 'categories'));
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  varchar  $slug
+     * @return \Illuminate\Http\Response
+     */
     public function post($slug)
     {
         $posts      = Post::whereSlug($slug)->firstOrFail();
@@ -44,6 +50,12 @@ class HomeController extends Controller
 
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function categories($id)
     {
         $categories = Category::paginate(4);

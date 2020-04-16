@@ -8,24 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>#CodeHacking</title>
-
      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lemon|Montserrat|Ubuntu&display=swap" rel="stylesheet">
-
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
-
     <!-- Custom CSS -->
     <link href="{{asset('lib_css/css/blog-post.css')}}" rel="stylesheet">
-
     <link href="{{asset('lib_css/css/custom.css')}}" rel="stylesheet">
-
 </head>
-
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
@@ -43,6 +35,8 @@
                     @if(Auth::guest())
                         <li> <a href="{{url('login')}}">Login</a> </li>
                         <li> <a href="{{url('register')}}">Register</a> </li>
+                    @elseif(Auth::user()->role->name == "Subscriber")
+                        <li> <a href="{{url('logout')}}">Logout</a> </li> 
                     @else
                         <li> <a href="{{url('admin')}}">Admin</a> </li>
                         <li> <a href="{{url('logout')}}">Logout</a> </li>

@@ -20,8 +20,17 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::latest()->paginate(4);
-        return view('admin.posts.index', compact('posts'));
+        $user = Auth::user();
+
+        if($user->role->name == 'Administrator' && $user->is_active == 1)
+        {
+            $posts = Post::latest()->paginate(4);
+            return view('admin.posts.index', compact('posts'));
+        }else{
+            
+            $posts = $user->posts()->latest()->paginate(4);;
+            return view('admin.posts.index', compact('posts'));
+        }
     }
 
     /**

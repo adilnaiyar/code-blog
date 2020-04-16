@@ -28,7 +28,7 @@
                         <div class="card" style="width: 40rem;">
                             <div class="card-body">
                                 <h2 class="card-title">{{$post->title}}</h2>
-                                <p class="lead"> by {{$post->user->name}} </p>
+                                <h4> by {{$post->user->name}} </h4>
                                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{$post->created_at->diffForHumans()}}</p>
                                 <hr> 
                                 <img class="card-img-top img-responsive " src="{{$post->photo->file ?? $post->photo_placeholder()}}" alt="photo">

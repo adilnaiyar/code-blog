@@ -41,7 +41,7 @@
                 </div>
                 <!-- Side Widget Well -->
                 <div class="well">
-                    <h4>Programming Quotes</h4>
+                    <h4>Programming Quotes:</h4>
                     <p><em>“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live”</em></p>
                     <h5> ― John Woods</h5>
                 </div>
@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="container-fluid">
-                      <p class="text-center">&copy; Copyright {{\Carbon\Carbon::now()->year}} CodeHacking </p>
+                      <p class="text-center">&copy; Copyright {{\Carbon\Carbon::now()->year}} #CodeHacking </p>
                 </div>
                 </div>
                 <!-- /.col-lg-12 -->

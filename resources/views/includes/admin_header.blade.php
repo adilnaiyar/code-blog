@@ -83,6 +83,7 @@
                         <!-- /input-group -->
                     </li>
                     <li><a href="{{route('admin')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a></li>
+                    @if(Auth::user()->role->name == "Administrator")
                     <li>
                         <a href="#"><i class="fa fa-user fa-fw"></i> Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -91,16 +92,20 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+                    @endif
                     <li>
                         <a href="#"><i class="fa fa-newspaper-o"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{route('posts.index')}}">All Posts</a></li>
                             <li><a href="{{route('posts.create')}}">Create Post</a></li>
+                            @if(Auth::user()->role->name == "Administrator")
                             <li><a href="{{route('comments.index')}}">All Comment</a></li>
                             <li><a href="{{route('replies.index')}}">All Reply</a></li>
+                            @endif
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
+                    @if(Auth::user()->role->name == "Administrator")
                     <li>
                         <a href="#"><i class="fa fa-list-alt"></i> Categories<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -116,27 +121,11 @@
                         </ul>
                     <!-- /.nav-second-level -->
                     </li>
+                    @endif
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
         </div>
         <!-- /.navbar-static-side -->
     </nav>
-    <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse">
-            <ul class="nav" id="side-menu">
-                <li>
-                    <a href="/profile"><i class="fa fa-dashboard fa-fw"></i>Profile</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="">All Posts</a></li>
-                        <li><a href="">Create Post</a></li>
-                    </ul>
-                    <!-- /.nav-second-level -->
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+    

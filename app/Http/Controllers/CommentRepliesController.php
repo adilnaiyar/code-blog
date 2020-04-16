@@ -40,10 +40,15 @@ class CommentRepliesController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function createReply(request $request)
     {
         $user = Auth::User();

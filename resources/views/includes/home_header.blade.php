@@ -36,6 +36,8 @@
                     @if(Auth::guest())
                         <li> <a href="{{url('login')}}">Login</a> </li>
                         <li> <a href="{{url('register')}}">Register</a> </li>
+                    @elseif(Auth::user()->role->name == "Subscriber")
+                        <li> <a href="{{url('logout')}}">Logout</a> </li> 
                     @else
                         <li> <a href="{{url('admin')}}">Admin</a> </li>
                         <li> <a href="{{url('logout')}}">Logout</a> </li>
