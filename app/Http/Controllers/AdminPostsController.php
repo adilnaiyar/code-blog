@@ -124,7 +124,7 @@ class AdminPostsController extends Controller
             $input['photo_id'] = $photo->id;
         }
 
-        Auth::User()->posts()->whereId($id)->first()->update($input);
+       Post::whereId($id)->first()->update($input);
 
         Session::flash('success', 'Post has been updated');
 

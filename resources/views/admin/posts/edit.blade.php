@@ -17,7 +17,8 @@
 			@include('includes.form_errors')
 
 			{!! Form::model($post, ['method' => 'put', 'action'=>['AdminPostsController@update', $post->id], 'files'=>true]) !!}
-		
+			
+				<input type="hidden" name="user_id" value="{{$post->user_id}}">
 				<div class="form-group">
 					{!! Form::label('title','Title:')!!}
 					{!! Form::text('title', null, ['class' => 'form-control'] )!!}

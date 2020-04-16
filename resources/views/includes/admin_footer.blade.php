@@ -13,9 +13,9 @@
 
 <script type="text/javascript">
     
-    $(".alert.flash").fadeTo(1000, 500).slideUp("slow", function(){
-        $(".alert.flash").slideUp("slow");
-    });
+    // $(".alert.flash").fadeTo(1000, 500).slideUp("slow", function(){
+    //     $(".alert.flash").slideUp("slow");
+    // });
 
 
 	 // tinymce.init({
