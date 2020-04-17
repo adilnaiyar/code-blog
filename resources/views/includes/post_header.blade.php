@@ -8,9 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>#CodeHacking</title>
+    <title>#CodeHacking-Post</title>
      <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lemon|Montserrat|Ubuntu&display=swap" rel="stylesheet">
+    <!--  Favicon -->
+   <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
     <!-- Custom CSS -->

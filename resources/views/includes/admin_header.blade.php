@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Admin</title>
+    <title>#CodeHacking-Admin</title>
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/blog-post.css')}}" rel="stylesheet">
@@ -15,6 +15,8 @@
     <link href="{{asset('lib_css/css/sb-admin-2.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/styles.css')}}" rel="stylesheet">
     <link href="{{asset('lib_css/css/custom.css')}}" rel="stylesheet">
+   <!--  Favicon -->
+   <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <!-- TinyMce -->
    <script src="https://cloud.tinymce.com/4/tinymce.min.js"></script>
     @yield('upload_css')

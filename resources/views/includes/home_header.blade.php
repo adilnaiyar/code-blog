@@ -9,6 +9,8 @@
     <title>#CodeHacking</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lemon|Montserrat|Ubuntu&display=swap" rel="stylesheet">
+    <!--  Favicon -->
+   <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('lib_css/css/bootstrap.css')}}" rel="stylesheet">
     <!-- Custom CSS -->
