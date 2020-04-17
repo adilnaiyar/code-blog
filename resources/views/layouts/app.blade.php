@@ -7,8 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Codehacking</title>
+    <title>#Codehacking</title>
 
+    <!--  Favicon -->
+    <link rel="icon" href="{{asset('images/favicon.ico')}}">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 

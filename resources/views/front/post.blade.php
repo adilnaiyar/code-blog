@@ -22,7 +22,7 @@
 				<hr>
 				<p><span class="glyphicon glyphicon-time"></span> Posted on {{$posts->created_at->diffForHumans()}}</p>
 				<hr>
-				<img class="img-responsive" src="{{$posts->photo->file ?? $posts->photo_placeholder()}}" alt="photo">
+				<img class="img-responsive" width="800" src="{{$posts->photo->file ?? $posts->photo_placeholder()}}" alt="photo">
 				<hr>
 				<!-- Post Content -->
 				<p class="lead">{!! $posts->body !!}</p>
@@ -31,7 +31,7 @@
 					@if(Auth::check())
 					<div class="well">
 					    <h4>Leave a Comment:</h4>
-					    {!! Form::open(['method' => 'post', 'action'=>'PostCommentsController@store']) !!}
+					    {!! Form::open(['method' => 'post', 'action'=>'PostCommentsController@createComment']) !!}
 					    	<input type="hidden" name="post_id" value="{{$posts->id}}">
 							<div class="form-group">
 								{!! Form::textarea('body', null, ['class' => 'form-control', 'rows' => 4] )!!}
@@ -53,7 +53,7 @@
 								<button class="toogle-reply btn btn-info pull-right ">Reply</button>
 								@endif
 						    	<a class="pull-left" href="#">
-						        	<img class="media-object" src="{{$posts->user->photo->file?? $posts->user->user_photo_placeholder()}}" height="50" alt="photo" class="img-fluid img-thumbnails">
+						        	<img class="media-object" src="{{$comment->photo?? $posts->user->user_photo_placeholder()}}" height="50" alt="photo" class="img-fluid img-thumbnails">
 						    	</a>
 						    	<div class="media-body">
 						        	<h4 class="media-heading">{{ $comment->author}}
@@ -79,7 +79,7 @@
 											@if($replies->is_active == 1)
 									        <div id = "nested-reply" class="media">
 									            <a class="pull-left" href="#">
-									                <img class="media-object" src="{{$posts->user->photo->file ?? $posts->user->user_photo_placeholder()}}" height="50" alt="photo" class="img-fluid img-thumbnails" alt="">
+									                <img class="media-object" src="{{$replies->photo?? $posts->user->user_photo_placeholder()}}" height="50" alt="photo" class="img-fluid img-thumbnails" alt="">
 									            </a>
 									            <div class="media-body">
 									                <h4 class="media-heading">{{ $replies->author}}

@@ -18,7 +18,7 @@ class PostCommentsController extends Controller
      */
     public function index()
     {   
-        $comments = Comment::latest()->paginate(4);
+        $comments = Comment::latest()->paginate(5);
         return view('admin.comment.index', compact('comments'));
     }
 
@@ -39,6 +39,18 @@ class PostCommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+    {
+        //
+    }
+       
+
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createComment(request $request)
     {
         $user = Auth::User();
 
@@ -76,7 +88,7 @@ class PostCommentsController extends Controller
     {
         $post = Post::findOrFail($id);
 
-        $comments = $post->comment()->latest()->paginate(4);;
+        $comments = $post->comment()->latest()->paginate(5);
 
         return view('admin.comment.show', compact('comments'));
     }

@@ -28,7 +28,7 @@
                             <hr>
                             <img class="img-responsive" src="{{$post->photo->file ?? $post->photo_placeholder()}}" alt="photo">
                             <hr>
-                            <p class="card-text">{!! Illuminate\Support\Str::limit($post->body, 20) !!}</p>
+                            <p class="card-text">{!! Str::words($post->body,30, '...')!!}</p>
                             <a class="btn btn-primary" href="{{route('home.post', $post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                         </div>
                     </div>

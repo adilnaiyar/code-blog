@@ -25,7 +25,7 @@
                 <div class="col-md-8">
                     @if(count($posts)>0)
                         @foreach($posts as $post)
-                        <div class="card" style="width: 40rem;">
+                        <div class="card" style="width: 50rem;">
                             <div class="card-body">
                                 <h2 class="card-title">{{$post->title}}</h2>
                                 <h4> by {{$post->user->name}} </h4>
@@ -33,7 +33,7 @@
                                 <hr> 
                                 <img class="card-img-top img-responsive " src="{{$post->photo->file ?? $post->photo_placeholder()}}" alt="photo">
                                 <hr>
-                                <p class="card-text">{!! Illuminate\Support\Str::limit($post->body, 20) !!}</p>
+                                <p class="card-text">{!! Str::words($post->body,30, '...')!!}</p>
                                 <a class="btn btn-primary" href="{{route('home.post', $post->slug)}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                             </div>
                         </div>

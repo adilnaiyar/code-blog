@@ -117,13 +117,15 @@ Route::group(['middleware' => 'admin'], function(){
 
 /*
 |--------------------------------------------------------------------------
-| CommentReply Route Access By All Authenticated User
+| PostComment And CommentReply Route Access By All Authenticated User
 |--------------------------------------------------------------------------
 |
 */
 Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('comment/reply', 'CommentRepliesController@createReply');
+
+	Route::post('post/comment', 'PostCommentsController@createComment');
 
 
 });

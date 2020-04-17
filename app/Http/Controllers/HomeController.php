@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts      = Post::latest()->paginate(2);
+        $posts      = Post::latest()->paginate(4);
 
         $categories = Category::paginate(4);
 
