@@ -78,5 +78,20 @@
             @yield('content')
         </main>
     </div>
+    <!-- Footer -->
+    <div class="fixed-bottom">
+    <hr>
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="container-fluid">
+                      <p class="text-center">&copy; Copyright {{\Carbon\Carbon::now()->year}} #CodeHacking </p>
+                </div>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </footer>
+    </div>
 </body>
 </html>

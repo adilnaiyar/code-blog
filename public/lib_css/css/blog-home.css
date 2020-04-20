@@ -8,7 +8,7 @@ body{
   background-color: #f64b3c;
   color:#fff;
   text-align: left;
-  padding: 5% 10% 2%;
+  padding: 10% 10% 2% 10%;
 }
 
 #title-two{
@@ -45,3 +45,14 @@ footer {
 	font-family: 'Montserrat-Bold';
     margin: 50px 0;
 }
+
+/*media*/
+@media (max-width:512px){
+
+  #title-one{
+    text-align: center;
+  }
+
+  .title-image{
+    text-align: center;
+  }

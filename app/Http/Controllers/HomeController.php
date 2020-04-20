@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $posts      = Post::latest()->paginate(4);
 
-        $categories = Category::paginate(4);
+        $categories = Category::all();
 
         return view('front.home', compact('posts', 'categories'));
     }
@@ -45,7 +45,7 @@ class HomeController extends Controller
 
         $comments   = $posts->comment()->get();
 
-        $categories = Category::paginate(4);
+        $categories = Category::all();
 
         return view('front.post', compact('posts', 'comments', 'categories'));
 
@@ -59,7 +59,7 @@ class HomeController extends Controller
      */
     public function categories($id)
     {
-        $categories = Category::paginate(4);
+        $categories = Category::all();
 
         $category   = Category::findOrFail($id);
 

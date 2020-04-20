@@ -2,7 +2,7 @@
 
     <!-- Title -->
     <section id="title-one">
-        <div class="Container">
+        <div class="Container-fluid">
             <div class="row">
                 <div class="col-lg-6 ">
                   <h1 class="big-heading">#CodeHacking</h1>
@@ -10,7 +10,7 @@
                   <h4 class="name-heading">by Adil on 07 April 2020</h4>
                 </div>
                 <div class="col-lg-6 ">
-                  <img class="title-image" src="{{asset('images/img0013.jpg')}}" alt="photo">
+                  <img class="title-image img-responsive" src="{{asset('images/img0013.jpg')}}" alt="photo">
                 </div>
             </div>
         </div>

@@ -15,6 +15,7 @@
                     <!-- /.input-group -->
                 </div>
                 <!-- Blog Categories Well -->
+                @if(count($categories)>0)
                 <div class="well ">
                     <div class="row ">
                         <div class="col-lg-6">
@@ -23,22 +24,17 @@
                                     <h4>Blog Categories</h4>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    @if(count($categories)>0)
-                                        @foreach($categories as $category)
-                                            <li class="list-group-item">
-                                                <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
-                                            </li>
-                                        @endforeach
-                                    @else
-                                        <em><h4 class="text-center"> No Categories</h4></em>  
-                                    @endif 
-                                    <!-- Pagination -->
-                                    {{$categories->render()}}   
+                                    @foreach($categories as $category)
+                                        <li class="list-group-item">
+                                            <a href="{{route('home.categories', $category->id)}}">{{$category->name}}</a>
+                                        </li>
+                                    @endforeach   
                                 </ul>
                             </div>
                          </div>
                     </div>
                 </div>
+                @endif 
                 <!-- Side Widget Well -->
                 <div class="well">
                     <h4>Programming Quotes:</h4>
