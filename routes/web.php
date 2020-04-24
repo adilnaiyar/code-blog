@@ -130,6 +130,16 @@ Route::group(['middleware' => 'auth'], function(){
 
 });
 
+/*
+|--------------------------------------------------------------------------
+| GithHub Login using OAuth
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
 
 
 
