@@ -142,5 +142,3 @@ Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback
 
 
 
-
-

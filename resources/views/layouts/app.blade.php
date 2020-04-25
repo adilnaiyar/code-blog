@@ -92,6 +92,6 @@
             </div>
             <!-- /.row -->
         </footer>
-    </div>
+    </div>  
 </body>
 </html>

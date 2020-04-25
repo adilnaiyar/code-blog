@@ -63,6 +63,6 @@
     </section>
     <script src="{{asset('lib_js/js/jquery.js')}}"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="{{asset('lib_js/js/bootstrap.js')}}"></script>
+    <script src="{{asset('lib_js/js/bootstrap.js')}}"></script>    
 </body>
 </html>
