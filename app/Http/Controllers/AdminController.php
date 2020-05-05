@@ -10,7 +10,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 { 
-
+	/**
+	 * Display a count of the resource.
+	 * @return \Illuminate\Http\Response
+	 */
     public function index()
     {
     	$countUser           = User::count();

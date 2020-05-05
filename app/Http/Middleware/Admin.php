@@ -15,17 +15,18 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-         $user = Auth::user();
 
         if(Auth::check())
         {
+            $user = Auth::user();
+
             if($user->role->name == 'Administrator' && $user->is_active == 1)
             {
                 return $next($request);
 
             }elseif($user->role->name == 'Author' && $user->is_active == 1){
 
-                 return $next($request);
+                return $next($request);
 
             }else{
 

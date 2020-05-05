@@ -25,11 +25,11 @@ class AdminPostsController extends Controller
 
         if($user->role->name == 'Administrator' && $user->is_active == 1)
         {
-            $posts = Post::latest()->paginate(5);
+            $posts = Post::latest()->get();
             return view('admin.posts.index', compact('posts'));
         }else{
 
-            $posts = $user->posts()->latest()->paginate(4);;
+            $posts = $user->posts()->latest()->get();
             return view('admin.posts.index', compact('posts'));
         }
     }

@@ -19,7 +19,7 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(5);
+        $users = User::latest()->get();
         return view('admin.users.index', compact('users'));
     }
 
@@ -147,7 +147,7 @@ class AdminUsersController extends Controller
         $user = User::findOrFail($id);
 
         $path = 'C:\xampp\htdocs'.$user->photo->file;
-
+        
         unlink($path);
 
         $user->delete();
